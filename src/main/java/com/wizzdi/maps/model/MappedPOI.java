@@ -9,33 +9,26 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MappedPOI extends SecuredBasic {
 
-  private String geoHash7;
-
-  private String geoHash10;
-
-  private String geoHash2;
-
-  private Double y;
-
-  private String geoHash11;
-
-  private String geoHash4;
-
-  private String geoHash6;
-
-  private String geoHash8;
-
-  private Double z;
-
   private String geoHash1;
-
+  private String geoHash2;
   private String geoHash3;
-
+  private String geoHash4;
+  private String geoHash5;
+  private String geoHash6;
+  private String geoHash7;
+  private String geoHash8;
   private String geoHash9;
-
-  private Double lat;
+  private String geoHash10;
+  private String geoHash11;
+  private String geoHash12;
 
   private Double x;
+  private Double y;
+  private Double z;
+
+  private Double lat;
+  private Double lon;
+
 
   @ManyToOne(targetEntity = Address.class)
   private Address address;
@@ -43,11 +36,8 @@ public class MappedPOI extends SecuredBasic {
   @ManyToOne(targetEntity = FileResource.class)
   private FileResource icon;
 
-  private String geoHash12;
 
-  private Double lon;
 
-  private String geoHash5;
 
   /** @return geoHash7 */
   public String getGeoHash7() {
