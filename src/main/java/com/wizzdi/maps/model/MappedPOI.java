@@ -37,12 +37,6 @@ public class MappedPOI extends SecuredBasic {
 
   private Double x;
 
-  private String test;
-
-  private String test1;
-
-  private String test2;
-
   @ManyToOne(targetEntity = Address.class)
   private Address address;
 
@@ -248,48 +242,6 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setX(Double x) {
     this.x = x;
-    return (T) this;
-  }
-
-  /** @return test */
-  public String getTest() {
-    return this.test;
-  }
-
-  /**
-   * @param test test to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setTest(String test) {
-    this.test = test;
-    return (T) this;
-  }
-
-  /** @return test1 */
-  public String getTest1() {
-    return this.test1;
-  }
-
-  /**
-   * @param test1 test1 to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setTest1(String test1) {
-    this.test1 = test1;
-    return (T) this;
-  }
-
-  /** @return test2 */
-  public String getTest2() {
-    return this.test2;
-  }
-
-  /**
-   * @param test2 test2 to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setTest2(String test2) {
-    this.test2 = test2;
     return (T) this;
   }
 
