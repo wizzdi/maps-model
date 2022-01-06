@@ -33,6 +33,8 @@ public class MappedPOI extends SecuredBasic {
 
   @ManyToOne(targetEntity = Address.class)
   private Address address;
+  @ManyToOne(targetEntity = Room.class)
+  private Room room;
 
 
 
@@ -218,6 +220,21 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setGeoHash9(String geoHash9) {
     this.geoHash9 = geoHash9;
+    return (T) this;
+  }
+
+  /** @return room */
+  @ManyToOne(targetEntity = Room.class)
+  public Room getRoom() {
+    return this.room;
+  }
+
+  /**
+   * @param room room to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setRoom(Room room) {
+    this.room = room;
     return (T) this;
   }
 
