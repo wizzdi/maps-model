@@ -1,9 +1,13 @@
 package com.wizzdi.maps.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
 import com.flexicore.model.territories.Address;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class MappedPOI extends SecuredBasic {
@@ -35,6 +39,9 @@ public class MappedPOI extends SecuredBasic {
   private Address address;
   @ManyToOne(targetEntity = Room.class)
   private Room room;
+  @JsonIgnore
+  @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mappedPOI")
+  private List<MapGroupToMappedPOI> mapGroupToMappedPOIS=new ArrayList<>();
 
 
 
@@ -321,6 +328,17 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setGeoHash5(String geoHash5) {
     this.geoHash5 = geoHash5;
+    return (T) this;
+  }
+
+  @JsonIgnore
+  @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mappedPOI")
+  public List<MapGroupToMappedPOI> getMapGroupToMappedPOIS() {
+    return mapGroupToMappedPOIS;
+  }
+
+  public <T extends MappedPOI> T setMapGroupToMappedPOIS(List<MapGroupToMappedPOI> mapGroupToMappedPOIS) {
+    this.mapGroupToMappedPOIS = mapGroupToMappedPOIS;
     return (T) this;
   }
 }
