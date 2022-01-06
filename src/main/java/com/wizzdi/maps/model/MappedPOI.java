@@ -264,20 +264,6 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return icon */
-  @ManyToOne(targetEntity = FileResource.class)
-  public FileResource getIcon() {
-    return this.icon;
-  }
-
-  /**
-   * @param icon icon to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setIcon(FileResource icon) {
-    this.icon = icon;
-    return (T) this;
-  }
 
   /** @return geoHash12 */
   public String getGeoHash12() {
