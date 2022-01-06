@@ -8,6 +8,8 @@
             
                 <class>com.wizzdi.maps.model.MappedPOI</class>
             
+                <class>com.wizzdi.maps.model.MapGroup</class>
+            
                 <class>com.flexicore.model.SecuredBasic</class>
             
                 <class>com.wizzdi.maps.model.Building</class>
@@ -15,6 +17,8 @@
                 <class>com.wizzdi.maps.model.MapIcon</class>
             
                 <class>com.flexicore.model.Basic</class>
+            
+                <class>com.wizzdi.maps.model.MapGroupToMappedPOI</class>
             
 
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
