@@ -10,6 +10,8 @@ public class MappedPOI extends SecuredBasic {
 
   private String geoHash7;
 
+  private String externalId;
+
   private String geoHash10;
 
   private String geoHash2;
@@ -62,6 +64,20 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setGeoHash7(String geoHash7) {
     this.geoHash7 = geoHash7;
+    return (T) this;
+  }
+
+  /** @return externalId */
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  /**
+   * @param externalId externalId to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setExternalId(String externalId) {
+    this.externalId = externalId;
     return (T) this;
   }
 
