@@ -8,6 +8,8 @@
             
                 <class>com.flexicore.model.SecuredBasic</class>
             
+                <class>com.wizzdi.maps.model.MapIcon</class>
+            
                 <class>com.flexicore.model.Basic</class>
             
 
