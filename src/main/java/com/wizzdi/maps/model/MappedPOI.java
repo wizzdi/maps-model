@@ -2,7 +2,6 @@ package com.wizzdi.maps.model;
 
 import com.flexicore.model.SecuredBasic;
 import com.flexicore.model.territories.Address;
-import com.wizzdi.flexicore.file.model.FileResource;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -31,6 +30,9 @@ public class MappedPOI extends SecuredBasic {
 
   private String geoHash3;
 
+  @ManyToOne(targetEntity = MapIcon.class)
+  private MapIcon mapIcon;
+
   private String geoHash9;
 
   private Double lat;
@@ -39,9 +41,6 @@ public class MappedPOI extends SecuredBasic {
 
   @ManyToOne(targetEntity = Address.class)
   private Address address;
-
-  @ManyToOne(targetEntity = FileResource.class)
-  private FileResource icon;
 
   private String geoHash12;
 
@@ -203,6 +202,21 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
+  /** @return mapIcon */
+  @ManyToOne(targetEntity = MapIcon.class)
+  public MapIcon getMapIcon() {
+    return this.mapIcon;
+  }
+
+  /**
+   * @param mapIcon mapIcon to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setMapIcon(MapIcon mapIcon) {
+    this.mapIcon = mapIcon;
+    return (T) this;
+  }
+
   /** @return geoHash9 */
   public String getGeoHash9() {
     return this.geoHash9;
@@ -257,21 +271,6 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setAddress(Address address) {
     this.address = address;
-    return (T) this;
-  }
-
-  /** @return icon */
-  @ManyToOne(targetEntity = FileResource.class)
-  public FileResource getIcon() {
-    return this.icon;
-  }
-
-  /**
-   * @param icon icon to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setIcon(FileResource icon) {
-    this.icon = icon;
     return (T) this;
   }
 
