@@ -14,6 +14,8 @@ public class Room extends SecuredBasic {
 
   private Double x;
 
+  private String externalId;
+
   private Double y;
 
   /** @return building */
@@ -56,6 +58,20 @@ public class Room extends SecuredBasic {
    */
   public <T extends Room> T setX(Double x) {
     this.x = x;
+    return (T) this;
+  }
+
+  /** @return externalId */
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  /**
+   * @param externalId externalId to set
+   * @return Room
+   */
+  public <T extends Room> T setExternalId(String externalId) {
+    this.externalId = externalId;
     return (T) this;
   }
 
