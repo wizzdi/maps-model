@@ -44,6 +44,8 @@ public class MappedPOI extends SecuredBasic {
 
   private Double x;
 
+  private boolean keepHistory;
+
   @ManyToOne(targetEntity = Address.class)
   private Address address;
 
@@ -290,6 +292,20 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setX(Double x) {
     this.x = x;
+    return (T) this;
+  }
+
+  /** @return keepHistory */
+  public boolean isKeepHistory() {
+    return this.keepHistory;
+  }
+
+  /**
+   * @param keepHistory keepHistory to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setKeepHistory(boolean keepHistory) {
+    this.keepHistory = keepHistory;
     return (T) this;
   }
 
