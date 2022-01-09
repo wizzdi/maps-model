@@ -8,6 +8,8 @@
             
                 <class>com.wizzdi.maps.model.MappedPOI</class>
             
+                <class>com.wizzdi.maps.model.LocationHistory</class>
+            
                 <class>com.wizzdi.maps.model.MapGroup</class>
             
                 <class>com.flexicore.model.SecuredBasic</class>
