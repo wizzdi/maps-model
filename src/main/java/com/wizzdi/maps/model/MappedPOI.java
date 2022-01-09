@@ -45,6 +45,7 @@ public class MappedPOI extends SecuredBasic {
   @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mappedPOI")
   private List<MapGroupToMappedPOI> mapGroupToMappedPOIS=new ArrayList<>();
 
+  private boolean keepHistory;
 
 
 
@@ -355,6 +356,19 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setExternalId(String externalId) {
     this.externalId = externalId;
+    return (T) this;
+  }
+  /** @return keepHistory */
+  public boolean isKeepHistory() {
+    return this.keepHistory;
+  }
+
+  /**
+   * @param keepHistory keepHistory to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setKeepHistory(boolean keepHistory) {
+    this.keepHistory = keepHistory;
     return (T) this;
   }
 }
