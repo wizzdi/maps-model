@@ -46,6 +46,8 @@ public class MappedPOI extends SecuredBasic {
   private List<MapGroupToMappedPOI> mapGroupToMappedPOIS=new ArrayList<>();
 
   private boolean keepHistory;
+  private String relatedType;
+
 
 
 
@@ -369,6 +371,20 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setKeepHistory(boolean keepHistory) {
     this.keepHistory = keepHistory;
+    return (T) this;
+  }
+
+  /** @return relatedType */
+  public String getRelatedType() {
+    return this.relatedType;
+  }
+
+  /**
+   * @param relatedType relatedType to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setRelatedType(String relatedType) {
+    this.relatedType = relatedType;
     return (T) this;
   }
 }
