@@ -47,6 +47,7 @@ public class MappedPOI extends SecuredBasic {
 
   private boolean keepHistory;
   private String relatedType;
+  private String relatedId;
 
 
 
@@ -385,6 +386,20 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setRelatedType(String relatedType) {
     this.relatedType = relatedType;
+    return (T) this;
+  }
+
+  /** @return relatedId */
+  public String getRelatedId() {
+    return this.relatedId;
+  }
+
+  /**
+   * @param relatedId relatedId to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setRelatedId(String relatedId) {
+    this.relatedId = relatedId;
     return (T) this;
   }
 }
