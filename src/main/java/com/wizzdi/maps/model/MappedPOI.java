@@ -53,6 +53,8 @@ public class MappedPOI extends SecuredBasic {
 
   private Double lon;
 
+  private String relatedType;
+
   private String geoHash5;
 
   /** @return geoHash7 */
@@ -349,6 +351,20 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setLon(Double lon) {
     this.lon = lon;
+    return (T) this;
+  }
+
+  /** @return relatedType */
+  public String getRelatedType() {
+    return this.relatedType;
+  }
+
+  /**
+   * @param relatedType relatedType to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setRelatedType(String relatedType) {
+    this.relatedType = relatedType;
     return (T) this;
   }
 
