@@ -10,25 +10,36 @@ public class MappedPOI extends SecuredBasic {
 
   private String geoHash7;
 
-  private String externalId;
-
   private String geoHash10;
 
-  private String geoHash2;
-
   private String relatedId;
-
-  private Double y;
-
-  private String geoHash11;
-
-  private String geoHash4;
 
   private String geoHash6;
 
   private String geoHash8;
 
   private Double z;
+
+  @ManyToOne(targetEntity = Room.class)
+  private Room room;
+
+  private Double lat;
+
+  private boolean keepLocationHistory;
+
+  private String geoHash12;
+
+  private String relatedType;
+
+  private String externalId;
+
+  private String geoHash2;
+
+  private Double y;
+
+  private String geoHash11;
+
+  private String geoHash4;
 
   private String geoHash1;
 
@@ -39,23 +50,14 @@ public class MappedPOI extends SecuredBasic {
 
   private String geoHash9;
 
-  @ManyToOne(targetEntity = Room.class)
-  private Room room;
-
-  private Double lat;
-
   private Double x;
 
-  private boolean keepHistory;
+  private boolean keepStatusHistory;
 
   @ManyToOne(targetEntity = Address.class)
   private Address address;
 
-  private String geoHash12;
-
   private Double lon;
-
-  private String relatedType;
 
   private String geoHash5;
 
@@ -73,20 +75,6 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return externalId */
-  public String getExternalId() {
-    return this.externalId;
-  }
-
-  /**
-   * @param externalId externalId to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setExternalId(String externalId) {
-    this.externalId = externalId;
-    return (T) this;
-  }
-
   /** @return geoHash10 */
   public String getGeoHash10() {
     return this.geoHash10;
@@ -101,20 +89,6 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return geoHash2 */
-  public String getGeoHash2() {
-    return this.geoHash2;
-  }
-
-  /**
-   * @param geoHash2 geoHash2 to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setGeoHash2(String geoHash2) {
-    this.geoHash2 = geoHash2;
-    return (T) this;
-  }
-
   /** @return relatedId */
   public String getRelatedId() {
     return this.relatedId;
@@ -126,48 +100,6 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setRelatedId(String relatedId) {
     this.relatedId = relatedId;
-    return (T) this;
-  }
-
-  /** @return y */
-  public Double getY() {
-    return this.y;
-  }
-
-  /**
-   * @param y y to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setY(Double y) {
-    this.y = y;
-    return (T) this;
-  }
-
-  /** @return geoHash11 */
-  public String getGeoHash11() {
-    return this.geoHash11;
-  }
-
-  /**
-   * @param geoHash11 geoHash11 to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setGeoHash11(String geoHash11) {
-    this.geoHash11 = geoHash11;
-    return (T) this;
-  }
-
-  /** @return geoHash4 */
-  public String getGeoHash4() {
-    return this.geoHash4;
-  }
-
-  /**
-   * @param geoHash4 geoHash4 to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setGeoHash4(String geoHash4) {
-    this.geoHash4 = geoHash4;
     return (T) this;
   }
 
@@ -210,6 +142,147 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setZ(Double z) {
     this.z = z;
+    return (T) this;
+  }
+
+  /** @return room */
+  @ManyToOne(targetEntity = Room.class)
+  public Room getRoom() {
+    return this.room;
+  }
+
+  /**
+   * @param room room to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setRoom(Room room) {
+    this.room = room;
+    return (T) this;
+  }
+
+  /** @return lat */
+  public Double getLat() {
+    return this.lat;
+  }
+
+  /**
+   * @param lat lat to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setLat(Double lat) {
+    this.lat = lat;
+    return (T) this;
+  }
+
+  /** @return keepLocationHistory */
+  public boolean isKeepLocationHistory() {
+    return this.keepLocationHistory;
+  }
+
+  /**
+   * @param keepLocationHistory keepLocationHistory to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setKeepLocationHistory(boolean keepLocationHistory) {
+    this.keepLocationHistory = keepLocationHistory;
+    return (T) this;
+  }
+
+  /** @return geoHash12 */
+  public String getGeoHash12() {
+    return this.geoHash12;
+  }
+
+  /**
+   * @param geoHash12 geoHash12 to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setGeoHash12(String geoHash12) {
+    this.geoHash12 = geoHash12;
+    return (T) this;
+  }
+
+  /** @return relatedType */
+  public String getRelatedType() {
+    return this.relatedType;
+  }
+
+  /**
+   * @param relatedType relatedType to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setRelatedType(String relatedType) {
+    this.relatedType = relatedType;
+    return (T) this;
+  }
+
+  /** @return externalId */
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  /**
+   * @param externalId externalId to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setExternalId(String externalId) {
+    this.externalId = externalId;
+    return (T) this;
+  }
+
+  /** @return geoHash2 */
+  public String getGeoHash2() {
+    return this.geoHash2;
+  }
+
+  /**
+   * @param geoHash2 geoHash2 to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setGeoHash2(String geoHash2) {
+    this.geoHash2 = geoHash2;
+    return (T) this;
+  }
+
+  /** @return y */
+  public Double getY() {
+    return this.y;
+  }
+
+  /**
+   * @param y y to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setY(Double y) {
+    this.y = y;
+    return (T) this;
+  }
+
+  /** @return geoHash11 */
+  public String getGeoHash11() {
+    return this.geoHash11;
+  }
+
+  /**
+   * @param geoHash11 geoHash11 to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setGeoHash11(String geoHash11) {
+    this.geoHash11 = geoHash11;
+    return (T) this;
+  }
+
+  /** @return geoHash4 */
+  public String getGeoHash4() {
+    return this.geoHash4;
+  }
+
+  /**
+   * @param geoHash4 geoHash4 to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setGeoHash4(String geoHash4) {
+    this.geoHash4 = geoHash4;
     return (T) this;
   }
 
@@ -270,35 +343,6 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return room */
-  @ManyToOne(targetEntity = Room.class)
-  public Room getRoom() {
-    return this.room;
-  }
-
-  /**
-   * @param room room to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setRoom(Room room) {
-    this.room = room;
-    return (T) this;
-  }
-
-  /** @return lat */
-  public Double getLat() {
-    return this.lat;
-  }
-
-  /**
-   * @param lat lat to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setLat(Double lat) {
-    this.lat = lat;
-    return (T) this;
-  }
-
   /** @return x */
   public Double getX() {
     return this.x;
@@ -313,17 +357,17 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return keepHistory */
-  public boolean isKeepHistory() {
-    return this.keepHistory;
+  /** @return keepStatusHistory */
+  public boolean isKeepStatusHistory() {
+    return this.keepStatusHistory;
   }
 
   /**
-   * @param keepHistory keepHistory to set
+   * @param keepStatusHistory keepStatusHistory to set
    * @return MappedPOI
    */
-  public <T extends MappedPOI> T setKeepHistory(boolean keepHistory) {
-    this.keepHistory = keepHistory;
+  public <T extends MappedPOI> T setKeepStatusHistory(boolean keepStatusHistory) {
+    this.keepStatusHistory = keepStatusHistory;
     return (T) this;
   }
 
@@ -342,20 +386,6 @@ public class MappedPOI extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return geoHash12 */
-  public String getGeoHash12() {
-    return this.geoHash12;
-  }
-
-  /**
-   * @param geoHash12 geoHash12 to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setGeoHash12(String geoHash12) {
-    this.geoHash12 = geoHash12;
-    return (T) this;
-  }
-
   /** @return lon */
   public Double getLon() {
     return this.lon;
@@ -367,20 +397,6 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setLon(Double lon) {
     this.lon = lon;
-    return (T) this;
-  }
-
-  /** @return relatedType */
-  public String getRelatedType() {
-    return this.relatedType;
-  }
-
-  /**
-   * @param relatedType relatedType to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setRelatedType(String relatedType) {
-    this.relatedType = relatedType;
     return (T) this;
   }
 
