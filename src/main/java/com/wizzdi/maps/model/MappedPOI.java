@@ -45,7 +45,9 @@ public class MappedPOI extends SecuredBasic {
   @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mappedPOI")
   private List<MapGroupToMappedPOI> mapGroupToMappedPOIS=new ArrayList<>();
 
-  private boolean keepHistory;
+  private boolean keepLocationHistory;
+  private boolean keepStatusHistory;
+
   private String relatedType;
   private String relatedId;
 
@@ -361,19 +363,6 @@ public class MappedPOI extends SecuredBasic {
     this.externalId = externalId;
     return (T) this;
   }
-  /** @return keepHistory */
-  public boolean isKeepHistory() {
-    return this.keepHistory;
-  }
-
-  /**
-   * @param keepHistory keepHistory to set
-   * @return MappedPOI
-   */
-  public <T extends MappedPOI> T setKeepHistory(boolean keepHistory) {
-    this.keepHistory = keepHistory;
-    return (T) this;
-  }
 
   /** @return relatedType */
   public String getRelatedType() {
@@ -400,6 +389,33 @@ public class MappedPOI extends SecuredBasic {
    */
   public <T extends MappedPOI> T setRelatedId(String relatedId) {
     this.relatedId = relatedId;
+    return (T) this;
+  }
+  /** @return keepLocationHistory */
+  public boolean isKeepLocationHistory() {
+    return this.keepLocationHistory;
+  }
+
+  /**
+   * @param keepLocationHistory keepLocationHistory to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setKeepLocationHistory(boolean keepLocationHistory) {
+    this.keepLocationHistory = keepLocationHistory;
+    return (T) this;
+  }
+
+  /** @return keepStatusHistory */
+  public boolean isKeepStatusHistory() {
+    return this.keepStatusHistory;
+  }
+
+  /**
+   * @param keepStatusHistory keepStatusHistory to set
+   * @return MappedPOI
+   */
+  public <T extends MappedPOI> T setKeepStatusHistory(boolean keepStatusHistory) {
+    this.keepStatusHistory = keepStatusHistory;
     return (T) this;
   }
 }
