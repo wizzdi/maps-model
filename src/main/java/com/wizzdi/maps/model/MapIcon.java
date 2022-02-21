@@ -8,10 +8,26 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MapIcon extends SecuredBasic {
 
+  private String relatedType;
+
   @ManyToOne(targetEntity = FileResource.class)
   private FileResource fileResource;
 
   private String externalId;
+
+  /** @return relatedType */
+  public String getRelatedType() {
+    return this.relatedType;
+  }
+
+  /**
+   * @param relatedType relatedType to set
+   * @return MapIcon
+   */
+  public <T extends MapIcon> T setRelatedType(String relatedType) {
+    this.relatedType = relatedType;
+    return (T) this;
+  }
 
   /** @return fileResource */
   @ManyToOne(targetEntity = FileResource.class)
