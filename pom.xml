@@ -6,7 +6,7 @@
 
     <groupId>com.wizzdi</groupId>
     <artifactId>maps-model</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
         <version.compiler.plugin>3.3</version.compiler.plugin>
@@ -17,11 +17,15 @@
             
                 <flexicore-boot-dependencies.version>2.2.1</flexicore-boot-dependencies.version>
             
+                <flexicore-boot-dynamic-invokers-model.version>1.1.1</flexicore-boot-dynamic-invokers-model.version>
+            
                 <flexicore-file-model.version>1.1.0</flexicore-file-model.version>
             
                 <flexicore-territories-model.version>3.0.1</flexicore-territories-model.version>
             
                 <spring-boot-dependencies.version>2.6.6</spring-boot-dependencies.version>
+            
+                <swagger-jaxrs2.version>2.1.2</swagger-jaxrs2.version>
             </properties>
     
 
@@ -56,6 +60,15 @@
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-core</artifactId>
                 <version>${swagger-core.version}</version>
+                <scope>provided</scope>
+                
+            </dependency>
+        
+
+            <dependency>
+                <groupId>com.wizzdi</groupId>
+                <artifactId>flexicore-boot-dynamic-invokers-model</artifactId>
+                <version>${flexicore-boot-dynamic-invokers-model.version}</version>
                 <scope>provided</scope>
                 
             </dependency>
@@ -101,6 +114,15 @@
                 <groupId>com.wizzdi</groupId>
                 <artifactId>flexicore-boot-starter-web</artifactId>
                 
+                <scope>provided</scope>
+                
+            </dependency>
+        
+
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-jaxrs2</artifactId>
+                <version>${swagger-jaxrs2.version}</version>
                 <scope>provided</scope>
                 
             </dependency>
