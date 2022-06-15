@@ -2,18 +2,18 @@ package com.wizzdi.maps.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class MapGroup extends SecuredBasic {
 
   private String externalId;
+
+  @OneToMany(targetEntity = MapGroupToMappedPOI.class, mappedBy = "mapGroup")
   @JsonIgnore
-  @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mapGroup")
-  private List<MapGroupToMappedPOI> mapGroupToMappedPOIS=new ArrayList<>();
+  private List<MapGroupToMappedPOI> mapGroupMapGroupToMappedPOIs;
 
   /** @return externalId */
   public String getExternalId() {
@@ -29,14 +29,20 @@ public class MapGroup extends SecuredBasic {
     return (T) this;
   }
 
+  /** @return mapGroupMapGroupToMappedPOIs */
+  @OneToMany(targetEntity = MapGroupToMappedPOI.class, mappedBy = "mapGroup")
   @JsonIgnore
-  @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mapGroup")
-  public List<MapGroupToMappedPOI> getMapGroupToMappedPOIS() {
-    return mapGroupToMappedPOIS;
+  public List<MapGroupToMappedPOI> getMapGroupMapGroupToMappedPOIs() {
+    return this.mapGroupMapGroupToMappedPOIs;
   }
 
-  public <T extends MapGroup> T setMapGroupToMappedPOIS(List<MapGroupToMappedPOI> mapGroupToMappedPOIS) {
-    this.mapGroupToMappedPOIS = mapGroupToMappedPOIS;
+  /**
+   * @param mapGroupMapGroupToMappedPOIs mapGroupMapGroupToMappedPOIs to set
+   * @return MapGroup
+   */
+  public <T extends MapGroup> T setMapGroupMapGroupToMappedPOIs(
+      List<MapGroupToMappedPOI> mapGroupMapGroupToMappedPOIs) {
+    this.mapGroupMapGroupToMappedPOIs = mapGroupMapGroupToMappedPOIs;
     return (T) this;
   }
 }

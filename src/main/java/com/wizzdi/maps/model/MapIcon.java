@@ -1,12 +1,23 @@
 package com.wizzdi.maps.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
 import com.wizzdi.flexicore.file.model.FileResource;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class MapIcon extends SecuredBasic {
+
+  @OneToMany(targetEntity = MappedPOI.class, mappedBy = "mapIcon")
+  @JsonIgnore
+  private List<MappedPOI> mapIconMappedPOIs;
+
+  @OneToMany(targetEntity = StatusHistory.class, mappedBy = "mapIcon")
+  @JsonIgnore
+  private List<StatusHistory> mapIconStatusHistories;
 
   private String relatedType;
 
@@ -14,6 +25,39 @@ public class MapIcon extends SecuredBasic {
   private FileResource fileResource;
 
   private String externalId;
+
+  /** @return mapIconMappedPOIs */
+  @OneToMany(targetEntity = MappedPOI.class, mappedBy = "mapIcon")
+  @JsonIgnore
+  public List<MappedPOI> getMapIconMappedPOIs() {
+    return this.mapIconMappedPOIs;
+  }
+
+  /**
+   * @param mapIconMappedPOIs mapIconMappedPOIs to set
+   * @return MapIcon
+   */
+  public <T extends MapIcon> T setMapIconMappedPOIs(List<MappedPOI> mapIconMappedPOIs) {
+    this.mapIconMappedPOIs = mapIconMappedPOIs;
+    return (T) this;
+  }
+
+  /** @return mapIconStatusHistories */
+  @OneToMany(targetEntity = StatusHistory.class, mappedBy = "mapIcon")
+  @JsonIgnore
+  public List<StatusHistory> getMapIconStatusHistories() {
+    return this.mapIconStatusHistories;
+  }
+
+  /**
+   * @param mapIconStatusHistories mapIconStatusHistories to set
+   * @return MapIcon
+   */
+  public <T extends MapIcon> T setMapIconStatusHistories(
+      List<StatusHistory> mapIconStatusHistories) {
+    this.mapIconStatusHistories = mapIconStatusHistories;
+    return (T) this;
+  }
 
   /** @return relatedType */
   public String getRelatedType() {
