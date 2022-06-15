@@ -8,26 +8,25 @@ import javax.persistence.ManyToOne;
 @Entity
 public class StatusHistory extends SecuredBasic {
 
-  @ManyToOne(targetEntity = MappedPOI.class)
-  private MappedPOI mappedPOI;
+  private OffsetDateTime dateAtStatus;
 
   @ManyToOne(targetEntity = MapIcon.class)
   private MapIcon mapIcon;
 
-  private OffsetDateTime dateAtStatus;
-
-  /** @return mappedPOI */
   @ManyToOne(targetEntity = MappedPOI.class)
-  public MappedPOI getMappedPOI() {
-    return this.mappedPOI;
+  private MappedPOI mappedPOI;
+
+  /** @return dateAtStatus */
+  public OffsetDateTime getDateAtStatus() {
+    return this.dateAtStatus;
   }
 
   /**
-   * @param mappedPOI mappedPOI to set
+   * @param dateAtStatus dateAtStatus to set
    * @return StatusHistory
    */
-  public <T extends StatusHistory> T setMappedPOI(MappedPOI mappedPOI) {
-    this.mappedPOI = mappedPOI;
+  public <T extends StatusHistory> T setDateAtStatus(OffsetDateTime dateAtStatus) {
+    this.dateAtStatus = dateAtStatus;
     return (T) this;
   }
 
@@ -46,17 +45,18 @@ public class StatusHistory extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return dateAtStatus */
-  public OffsetDateTime getDateAtStatus() {
-    return this.dateAtStatus;
+  /** @return mappedPOI */
+  @ManyToOne(targetEntity = MappedPOI.class)
+  public MappedPOI getMappedPOI() {
+    return this.mappedPOI;
   }
 
   /**
-   * @param dateAtStatus dateAtStatus to set
+   * @param mappedPOI mappedPOI to set
    * @return StatusHistory
    */
-  public <T extends StatusHistory> T setDateAtStatus(OffsetDateTime dateAtStatus) {
-    this.dateAtStatus = dateAtStatus;
+  public <T extends StatusHistory> T setMappedPOI(MappedPOI mappedPOI) {
+    this.mappedPOI = mappedPOI;
     return (T) this;
   }
 }

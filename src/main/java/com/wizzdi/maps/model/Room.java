@@ -10,13 +10,13 @@ public class Room extends SecuredBasic {
   @ManyToOne(targetEntity = Building.class)
   private Building building;
 
-  private Double z;
+  private String externalId;
 
   private Double x;
 
-  private String externalId;
-
   private Double y;
+
+  private Double z;
 
   /** @return building */
   @ManyToOne(targetEntity = Building.class)
@@ -30,34 +30,6 @@ public class Room extends SecuredBasic {
    */
   public <T extends Room> T setBuilding(Building building) {
     this.building = building;
-    return (T) this;
-  }
-
-  /** @return z */
-  public Double getZ() {
-    return this.z;
-  }
-
-  /**
-   * @param z z to set
-   * @return Room
-   */
-  public <T extends Room> T setZ(Double z) {
-    this.z = z;
-    return (T) this;
-  }
-
-  /** @return x */
-  public Double getX() {
-    return this.x;
-  }
-
-  /**
-   * @param x x to set
-   * @return Room
-   */
-  public <T extends Room> T setX(Double x) {
-    this.x = x;
     return (T) this;
   }
 
@@ -75,6 +47,20 @@ public class Room extends SecuredBasic {
     return (T) this;
   }
 
+  /** @return x */
+  public Double getX() {
+    return this.x;
+  }
+
+  /**
+   * @param x x to set
+   * @return Room
+   */
+  public <T extends Room> T setX(Double x) {
+    this.x = x;
+    return (T) this;
+  }
+
   /** @return y */
   public Double getY() {
     return this.y;
@@ -86,6 +72,20 @@ public class Room extends SecuredBasic {
    */
   public <T extends Room> T setY(Double y) {
     this.y = y;
+    return (T) this;
+  }
+
+  /** @return z */
+  public Double getZ() {
+    return this.z;
+  }
+
+  /**
+   * @param z z to set
+   * @return Room
+   */
+  public <T extends Room> T setZ(Double z) {
+    this.z = z;
     return (T) this;
   }
 }

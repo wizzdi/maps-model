@@ -8,12 +8,26 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MapIcon extends SecuredBasic {
 
+  private String externalId;
+
   private String relatedType;
 
   @ManyToOne(targetEntity = FileResource.class)
   private FileResource fileResource;
 
-  private String externalId;
+  /** @return externalId */
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  /**
+   * @param externalId externalId to set
+   * @return MapIcon
+   */
+  public <T extends MapIcon> T setExternalId(String externalId) {
+    this.externalId = externalId;
+    return (T) this;
+  }
 
   /** @return relatedType */
   public String getRelatedType() {
@@ -41,20 +55,6 @@ public class MapIcon extends SecuredBasic {
    */
   public <T extends MapIcon> T setFileResource(FileResource fileResource) {
     this.fileResource = fileResource;
-    return (T) this;
-  }
-
-  /** @return externalId */
-  public String getExternalId() {
-    return this.externalId;
-  }
-
-  /**
-   * @param externalId externalId to set
-   * @return MapIcon
-   */
-  public <T extends MapIcon> T setExternalId(String externalId) {
-    this.externalId = externalId;
     return (T) this;
   }
 }
