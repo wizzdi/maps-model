@@ -21,6 +21,21 @@
         <flexicore-file-model.version>1.0.0</flexicore-file-model.version>
         
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>flexicore-local</id>
+            <name>flexicore-local</name>
+            <url>https://artifactory.wizzdi.com/artifactory/wizzdi-cloud-local</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>flexicore-local</id>
+            <name>flexicore-local</name>
+            <url>https://artifactory.wizzdi.com/artifactory/wizzdi-cloud-local</url>
+        </repository>
+    </repositories>
     
 
     <dependencyManagement>
@@ -115,6 +130,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             
             
