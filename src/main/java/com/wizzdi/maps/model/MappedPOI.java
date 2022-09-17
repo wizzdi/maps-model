@@ -41,6 +41,8 @@ public class MappedPOI extends SecuredBasic {
   private Address address;
   @ManyToOne(targetEntity = Room.class)
   private Room room;
+  @ManyToOne(targetEntity = BuildingFloor.class)
+  private BuildingFloor buildingFloor;
   @JsonIgnore
   @OneToMany(targetEntity = MapGroupToMappedPOI.class,mappedBy = "mappedPOI")
   private List<MapGroupToMappedPOI> mapGroupToMappedPOIS=new ArrayList<>();
@@ -417,5 +419,14 @@ public class MappedPOI extends SecuredBasic {
   public <T extends MappedPOI> T setKeepStatusHistory(boolean keepStatusHistory) {
     this.keepStatusHistory = keepStatusHistory;
     return (T) this;
+  }
+
+  public BuildingFloor getBuildingFloor() {
+    return buildingFloor;
+  }
+
+  public MappedPOI setBuildingFloor(BuildingFloor buildingFloor) {
+    this.buildingFloor = buildingFloor;
+    return this;
   }
 }
