@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
 import com.wizzdi.flexicore.file.model.FileResource;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "mapicon_idx",columnList = "externalId,relatedType")
+})
 public class MapIcon extends SecuredBasic {
 
   @OneToMany(targetEntity = MappedPOI.class, mappedBy = "mapIcon")

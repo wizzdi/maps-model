@@ -3,11 +3,12 @@ package com.wizzdi.maps.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "room_idx",columnList = "building_id")
+})
 public class Room extends SecuredBasic {
 
   @ManyToOne(targetEntity = Building.class)

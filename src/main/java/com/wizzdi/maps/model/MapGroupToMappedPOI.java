@@ -2,9 +2,14 @@ package com.wizzdi.maps.model;
 
 import com.flexicore.model.SecuredBasic;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "mapgroup_to_mappedpoi_idx",columnList = "mappedPOI_id,mapGroup_id")
+})
 public class MapGroupToMappedPOI extends SecuredBasic {
 
   @ManyToOne(targetEntity = MappedPOI.class)

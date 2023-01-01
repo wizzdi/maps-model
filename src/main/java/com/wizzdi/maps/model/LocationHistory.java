@@ -3,9 +3,14 @@ package com.wizzdi.maps.model;
 import com.flexicore.model.SecuredBasic;
 import java.time.OffsetDateTime;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "location_history_idx",columnList = "mappedPOI_id,lat,lon,dateAtLocation")
+})
 public class LocationHistory extends SecuredBasic {
 
   private OffsetDateTime dateAtLocation;

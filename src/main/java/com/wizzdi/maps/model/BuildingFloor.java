@@ -3,13 +3,14 @@ package com.wizzdi.maps.model;
 import com.flexicore.model.SecuredBasic;
 import com.wizzdi.flexicore.file.model.FileResource;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "buildingFloor_idx",columnList = "building_id")
+})
 public class BuildingFloor extends SecuredBasic {
     @ManyToOne(targetEntity = Building.class)
     private Building building;
