@@ -14,7 +14,7 @@ import java.util.List;
 public class BuildingFloor extends SecuredBasic {
     @ManyToOne(targetEntity = Building.class)
     private Building building;
-    @ManyToOne(targetEntity = Building.class)
+    @ManyToOne(targetEntity = FileResource.class)
     private FileResource drawing;
     @OneToMany(targetEntity = MappedPOI.class,mappedBy = "buildingFloor")
     private List<MappedPOI> mappedPOIs=new ArrayList<>();
