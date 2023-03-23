@@ -1,5 +1,6 @@
 package com.wizzdi.maps.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
 import com.wizzdi.flexicore.file.model.FileResource;
 
@@ -16,9 +17,14 @@ public class BuildingFloor extends SecuredBasic {
     private Building building;
     @ManyToOne(targetEntity = FileResource.class)
     private FileResource drawing;
-    @OneToMany(targetEntity = MappedPOI.class,mappedBy = "buildingFloor")
-    private List<MappedPOI> mappedPOIs=new ArrayList<>();
+    private int ordinal;
 
+    @OneToMany(targetEntity = Room.class, mappedBy = "buildingFloor")
+    @JsonIgnore
+    private List<Room> rooms;
+    @OneToMany(targetEntity = MappedPOI.class, mappedBy = "buildingFloor")
+    @JsonIgnore
+    private List<MappedPOI> mappedPOIS;
     public Building getBuilding() {
         return building;
     }
@@ -37,12 +43,30 @@ public class BuildingFloor extends SecuredBasic {
         return this;
     }
 
-    public List<MappedPOI> getMappedPOIs() {
-        return mappedPOIs;
+    public int getOrdinal() {
+        return ordinal;
     }
 
-    public BuildingFloor setMappedPOIs(List<MappedPOI> mappedPOIs) {
-        this.mappedPOIs = mappedPOIs;
+    public BuildingFloor setOrdinal(int ordinal) {
+        this.ordinal = ordinal;
+        return this;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public BuildingFloor setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+        return this;
+    }
+
+    public List<MappedPOI> getMappedPOIS() {
+        return mappedPOIS;
+    }
+
+    public BuildingFloor setMappedPOIS(List<MappedPOI> mappedPOIS) {
+        this.mappedPOIS = mappedPOIS;
         return this;
     }
 }

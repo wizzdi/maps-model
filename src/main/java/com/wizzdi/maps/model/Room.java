@@ -6,21 +6,16 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(indexes = {
-        @Index(name = "room_idx",columnList = "building_id")
-})
 public class Room extends SecuredBasic {
 
-  @ManyToOne(targetEntity = Building.class)
-  private Building building;
+  @ManyToOne(targetEntity = BuildingFloor.class)
+  private BuildingFloor buildingFloor;
 
   @OneToMany(targetEntity = LocationHistory.class, mappedBy = "room")
   @JsonIgnore
   private List<LocationHistory> roomLocationHistories;
 
-  @OneToMany(targetEntity = MappedPOI.class, mappedBy = "room")
-  @JsonIgnore
-  private List<MappedPOI> roomMappedPOIs;
+
 
   private Double z;
 
@@ -30,20 +25,6 @@ public class Room extends SecuredBasic {
 
   private Double y;
 
-  /** @return building */
-  @ManyToOne(targetEntity = Building.class)
-  public Building getBuilding() {
-    return this.building;
-  }
-
-  /**
-   * @param building building to set
-   * @return Room
-   */
-  public <T extends Room> T setBuilding(Building building) {
-    this.building = building;
-    return (T) this;
-  }
 
   /** @return roomLocationHistories */
   @OneToMany(targetEntity = LocationHistory.class, mappedBy = "room")
@@ -61,21 +42,7 @@ public class Room extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return roomMappedPOIs */
-  @OneToMany(targetEntity = MappedPOI.class, mappedBy = "room")
-  @JsonIgnore
-  public List<MappedPOI> getRoomMappedPOIs() {
-    return this.roomMappedPOIs;
-  }
 
-  /**
-   * @param roomMappedPOIs roomMappedPOIs to set
-   * @return Room
-   */
-  public <T extends Room> T setRoomMappedPOIs(List<MappedPOI> roomMappedPOIs) {
-    this.roomMappedPOIs = roomMappedPOIs;
-    return (T) this;
-  }
 
   /** @return z */
   public Double getZ() {
@@ -131,5 +98,14 @@ public class Room extends SecuredBasic {
   public <T extends Room> T setY(Double y) {
     this.y = y;
     return (T) this;
+  }
+
+  public BuildingFloor getBuildingFloor() {
+    return buildingFloor;
+  }
+
+  public Room setBuildingFloor(BuildingFloor buildingFloor) {
+    this.buildingFloor = buildingFloor;
+    return this;
   }
 }
