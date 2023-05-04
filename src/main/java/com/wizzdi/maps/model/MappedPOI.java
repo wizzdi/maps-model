@@ -55,7 +55,17 @@ public class MappedPOI extends SecuredBasic {
 
   private String relatedType;
   private String relatedId;
+  @ManyToOne(targetEntity = Layer.class)
+  private Layer layer;
+  @ManyToOne(targetEntity = Layer.class)
+  public Layer getLayer() {
+    return layer;
+  }
 
+  public MappedPOI setLayer(Layer layer) {
+    this.layer = layer;
+    return this;
+  }
 
 
 
