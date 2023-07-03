@@ -3,11 +3,9 @@ package com.wizzdi.maps.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flexicore.model.SecuredBasic;
 import com.wizzdi.flexicore.file.model.FileResource;
-import org.aspectj.apache.bcel.generic.TargetLostException;
 
-import java.lang.annotation.Target;
-import java.util.List;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(indexes = {
